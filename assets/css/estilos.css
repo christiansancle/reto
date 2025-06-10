@@ -1,0 +1,85 @@
+/* Tema: Hollow Knight */
+
+:root {
+  --color-fondo: #0e0e10;
+  --color-texto: #e0e0e0;
+  --color-acento: #5865f2;
+  --color-secundario: #1f1f2e;
+  --color-borde: #333;
+  --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-decorativa: 'Cinzel', serif; /* Para títulos */
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Estilo general para títulos */
+h1, h2, h3 {
+  font-family: var(--fuente-decorativa);
+  color: var(--color-acento);
+  margin-bottom: 10px;
+}
+
+/* Navegación */
+nav {
+  background-color: var(--color-secundario);
+  padding: 15px;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+nav a {
+  color: var(--color-texto);
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+nav a:hover {
+  color: var(--color-acento);
+}
+
+/* Secciones */
+section {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: var(--color-secundario);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Botones */
+button, .btn {
+  background-color: var(--color-acento);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover, .btn:hover {
+  background-color: #3b49b3;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  border-top: 1px solid var(--color-borde);
+  font-size: 0.9em;
+  color: #aaa;
+}
