@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contactos.html">Contactos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contactos.html">Contacto</a></li>
           <li class="nav-item"><a class="nav-link" href="donaciones.html">Donaciones</a></li>
           <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         </ul>
@@ -30,13 +30,42 @@
   <!-- Encabezado -->
   <header class="bg-dark text-light p-5 rounded shadow-sm mb-4">
     <div class="container">
-      <h1>Contáctame</h1>
-      <p>¿Tienes preguntas, ideas o solo quieres saludar? Rellena el siguiente formulario.</p>
+      <h1>Contacto</h1>
+      <p>Ponte en contacto conmigo para consultas, sugerencias o colaboraciones.</p>
     </div>
   </header>
 
-  <!-- Formulario de contacto -->
-  <div class="container">
+  <!-- Ejemplo de contacto -->
+  <section class="container mb-4">
+    <h4 class="text-primary">Ejemplo de contacto de como hacerlo:</h4>
+    <p><strong>Nombre:</strong> Ana Ramírez</p>
+    <p><strong>Correo:</strong> ana.ramirez@example.com</p>
+    <p><strong>Asunto:</strong> Me gustaría colaborar con tu blog</p>
+    <hr>
+  </section>
+
+  <!-- Información de contacto -->
+  <section class="container mb-5">
+    <h2 class="mb-3">Información de contacto</h2>
+    <p><strong>Correo:</strong> contacto@miblog.com</p>
+    <p><strong>Teléfono:</strong> +57 300 000 0000</p>
+    <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
+  </section>
+
+  <!-- Mapa -->
+  <section class="container mb-5">
+    <h2 class="mb-3">Ubicación</h2>
+    <div class="ratio ratio-16x9">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8872070181466!2d-74.07209268466087!3d4.59807754399119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a3a01f379d%3A0x57bb4bc98a45e124!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1620213971451!5m2!1ses!2sco" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Formulario -->
+  <section class="container mb-5">
+    <h2 class="mb-3">Escríbeme</h2>
     <form>
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
@@ -48,19 +77,20 @@
       </div>
       <div class="mb-3">
         <label for="mensaje" class="form-label">Mensaje</label>
-        <textarea class="form-control" id="mensaje" rows="5" required></textarea>
+        <textarea class="form-control" id="mensaje" rows="4" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
-  </div>
+  </section>
 
   <!-- Pie de página -->
   <footer class="bg-dark text-center text-light py-4 mt-5 border-top border-secondary">
     <div class="container">
-      <p>&copy; 2025 Mi Blog Hollow Knight. Todos los derechos reservados.</p>
+      <p>&copy; 2025 Mi Blog Hollow Knight. ¡Gracias por tu visita!</p>
     </div>
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
