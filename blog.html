@@ -3,12 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog - Mi Blog</title>
+  <title>Blog - Mi Comunidad</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/estilos.css">
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+    }
+
+    .navbar, .card, .form-control, .btn, .list-group-item, .reply-input {
+      color: white !important;
+    }
+
+    .form-control, .reply-input {
+      background-color: #2c2c2c;
+      border: 1px solid #444;
+    }
+
+    .form-control::placeholder,
+    .reply-input::placeholder {
+      color: #ccc;
+    }
+
+    .card {
+      background-color: #1f1f1f;
+      border: 1px solid #2d2d2d;
+    }
+
+    .list-group-item {
+      background-color: #2a2a2a;
+    }
+
+    h1, h5, p, label, input, textarea {
+      color: white !important;
+    }
+  </style>
 </head>
 <body>
-
   <!-- Navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container-fluid">
@@ -27,36 +58,39 @@
     </div>
   </nav>
 
-  <!-- Encabezado -->
-  <header class="bg-dark text-light p-5 rounded shadow-sm mb-4">
-    <div class="container">
-      <h1>Entradas del Blog</h1>
-      <p>Explora pensamientos, relatos, reflexiones y más.</p>
-    </div>
-  </header>
-
-  <!-- Entradas del blog -->
+  <!-- Blog interactivo -->
   <div class="container">
-    <article class="mb-5">
-      <h2 class="text-accent">🌌 El abismo de Hallownest</h2>
-      <p class="text-muted">Publicado el 01 de mayo de 2025</p>
-      <p>Hoy reflexiono sobre cómo los entornos oscuros pueden inspirar introspección y belleza narrativa. Hollow Knight no es solo un juego; es una experiencia emocional...</p>
-    </article>
+    <h1 class="mb-4">Publicaciones del Blog</h1>
 
-    <article class="mb-5">
-      <h2 class="text-accent">🛡️ Minimalismo en combate</h2>
-      <p class="text-muted">Publicado el 18 de abril de 2025</p>
-      <p>En este artículo analizo cómo una interfaz limpia y mecánicas simples pueden generar batallas profundas, y qué podemos aprender de ello al escribir.</p>
-    </article>
+    <!-- Formulario para crear publicaciones -->
+    <form id="postForm" class="mb-5">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="postTitulo" placeholder="Título del post" required>
+      </div>
+      <div class="mb-3">
+        <textarea class="form-control" id="postContenido" placeholder="Escribe tu post aquí..." rows="4" required></textarea>
+      </div>
+      <div class="mb-3">
+        <input type="file" class="form-control" id="postArchivo" accept="image/*,video/*">
+      </div>
+      <button type="submit" class="btn btn-primary">Publicar</button>
+    </form>
+
+    <!-- Contenedor de publicaciones estilo foro -->
+    <div id="postContainer" class="mb-5">
+      <!-- Los posts se cargarán aquí dinámicamente -->
+    </div>
   </div>
 
   <!-- Pie de página -->
   <footer class="bg-dark text-center text-light py-4 mt-5 border-top border-secondary">
     <div class="container">
-      <p>&copy; 2025 Mi Blog Hollow Knight. Todas las ideas son bienvenidas.</p>
+      <p>&copy; 2025 Mi Blog Hollow Knight. Comparte tu pasión.</p>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="assets/js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
