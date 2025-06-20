@@ -6,11 +6,47 @@
   <title>Contacto - Mi Blog</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/estilos.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #202020;
+      color: #f8f9fa;
+    }
+    .navbar, footer, .modal-header, .modal-footer {
+      background-color: #343a40;
+    }
+    .btn-primary {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    .btn-primary:hover {
+      background-color: #5a6268;
+    }
+    a.nav-link {
+      color: #f8f9fa;
+    }
+    a.nav-link:hover {
+      color: #d4d4d4;
+    }
+    .form-control, .btn {
+      color: #f8f9fa;
+      background-color: #343a40;
+      border-color: #6c757d;
+    }
+    .form-control:focus {
+      border-color: #5a6268;
+      box-shadow: none;
+    }
+    .modal-content {
+      background-color: #202020;
+      color: #f8f9fa;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">Mi Blog</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -20,7 +56,9 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link active" href="contactos.html">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link" href="donaciones.html">Donaciones</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#donationModal">Donaciones</a>
+          </li>
           <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         </ul>
       </div>
@@ -28,21 +66,12 @@
   </nav>
 
   <!-- Encabezado -->
-  <header class="bg-dark text-light p-5 rounded shadow-sm mb-4">
-    <div class="container">
+  <header class="text-light p-5 rounded shadow-sm mb-4">
+    <div class="container text-center">
       <h1>Contacto</h1>
       <p>Ponte en contacto conmigo para consultas, sugerencias o colaboraciones.</p>
     </div>
   </header>
-
-  <!-- Ejemplo de contacto -->
-  <section class="container mb-4">
-    <h4 class="text-primary">Ejemplo de contacto de como hacerlo:</h4>
-    <p><strong>Nombre:</strong> Ana Ramírez</p>
-    <p><strong>Correo:</strong> ana.ramirez@example.com</p>
-    <p><strong>Asunto:</strong> Me gustaría colaborar con tu blog</p>
-    <hr>
-  </section>
 
   <!-- Información de contacto -->
   <section class="container mb-5">
@@ -83,8 +112,48 @@
     </form>
   </section>
 
+  <!-- Modal de Donaciones -->
+  <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="donationModalLabel">Donaciones</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="donationForm">
+            <div class="mb-3">
+              <label for="paymentMethod" class="form-label">Método de pago</label>
+              <select id="paymentMethod" class="form-select" required>
+                <option value="">Seleccionar...</option>
+                <option value="paypal">PayPal</option>
+                <option value="nequi">Nequi</option>
+              </select>
+            </div>
+            <div id="paypalFields" class="d-none">
+              <label for="paypalEmail" class="form-label">Correo electrónico de PayPal</label>
+              <input type="email" id="paypalEmail" class="form-control" placeholder="tuemail@example.com">
+            </div>
+            <div id="nequiFields" class="d-none">
+              <label for="nequiPhone" class="form-label">Número de teléfono (Nequi)</label>
+              <input type="tel" id="nequiPhone" class="form-control" placeholder="3101234567" pattern="\d{10}">
+            </div>
+            <div class="mb-3">
+              <label for="amount" class="form-label">Monto a donar</label>
+              <input type="number" id="amount" class="form-control" placeholder="Ej: 20.00" min="1" step="0.01" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" form="donationForm" class="btn btn-primary">Enviar Donación</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Pie de página -->
-  <footer class="bg-dark text-center text-light py-4 mt-5 border-top border-secondary">
+  <footer class="text-center py-4 mt-5">
     <div class="container">
       <p>&copy; 2025 Mi Blog Hollow Knight. ¡Gracias por tu visita!</p>
     </div>
@@ -92,5 +161,15 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('paymentMethod').addEventListener('change', function () {
+      const paypalFields = document.getElementById('paypalFields');
+      const nequiFields = document.getElementById('nequiFields');
+      const selectedMethod = this.value;
+
+      paypalFields.classList.toggle('d-none', selectedMethod !== 'paypal');
+      nequiFields.classList.toggle('d-none', selectedMethod !== 'nequi');
+    });
+  </script>
 </body>
 </html>
