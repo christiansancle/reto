@@ -3,7 +3,7 @@
 :root {
   --color-fondo: #0e0e10;
   --color-texto: #e0e0e0;
-  --color-acento: #5865f2;
+  --color-acento: #00CF1E;
   --color-secundario: #1f1f2e;
   --color-borde: #333;
   --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -71,7 +71,7 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-  background-color: #3b49b3;
+  background-color: #00CF1E;
 }
 
 /* Footer */

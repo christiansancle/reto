@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mi Blog Hollow Knight</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/estilos.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/estilos.css" />
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+    }
+    .navbar,
+    footer {
+      background-color: #1f1f1f;
+    }
+    .carousel-inner {
+      border-radius: 10px;
+    }
+    .carousel-indicators [data-bs-target] {
+      background-color: #6c757d;
+    }
+    img.img-fluid {
+      border-radius: 10px;
+    }
+    .carousel-section {
+      background: url('assets/img/city-of-tears-ssb-style-arena-fanart-v0-kvewbs6gu1pe1.jpg') no-repeat center center / cover;
+      padding: 50px 0;
+    }
+  </style>
 </head>
 <body>
-
   <!-- Navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Mi Blog</a>
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/Hollow-Knight-Logo-PNG-Images-HD.png" alt="Logo" style="height: 40px" />
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,7 +53,7 @@
     </div>
   </nav>
 
-  <!-- Portada / Presentación -->
+  <!-- Portada -->
   <header class="bg-dark text-light text-center p-5 mb-4 rounded shadow-sm">
     <div class="container">
       <h1>Bienvenidos a Mi Blog Hollow Knight</h1>
@@ -37,79 +61,69 @@
     </div>
   </header>
 
-  <!-- Carrusel -->
-  <section class="container mb-5">
-    <h2 class="mb-3 text-center">Descubre Nuestra Comunidad</h2>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+  <!-- Carrusel con imágenes laterales -->
+  <section class="carousel-section text-center">
+    <h2 class="mb-3">Descubre Nuestra Comunidad</h2>
+    <div class="d-flex justify-content-center align-items-center">
+      <!-- Imagen izquierda -->
+      <div>
+        <img src="assets/img/2.gif" alt="Imagen izquierda" class="img-fluid" style="max-width: 200px" />
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="text-center p-4">
-            <h3>¿Qué es este blog?</h3>
-            <p>Un grupo interactivo para compartir teorías, fanart, experiencias del juego, y mucho más. ¡Un espacio hecho por y para fans!</p>
+
+      <!-- Carrusel -->
+      <div id="carouselExampleIndicators" class="carousel slide mx-3" data-bs-ride="carousel" style="flex: 1">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="text-center p-4">
+              <h3>¿Qué es este blog?</h3>
+              <p>Un grupo interactivo para compartir teorías, fanart, experiencias del juego, y mucho más. ¡Un espacio hecho por y para fans!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="text-center p-4">
+              <h3>Misión</h3>
+              <p>Fomentar una comunidad apasionada y respetuosa que promueva la creatividad y el aprendizaje entre fans de Hollow Knight.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="text-center p-4">
+              <h3>Visión</h3>
+              <p>Ser una de las comunidades más reconocidas sobre Hollow Knight en el mundo hispanohablante.</p>
+            </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="text-center p-4">
-            <h3>Misión</h3>
-            <p>Fomentar una comunidad apasionada y respetuosa que promueva la creatividad y el aprendizaje entre fans de Hollow Knight.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="text-center p-4">
-            <h3>Visión</h3>
-            <p>Ser una de las comunidades más reconocidas sobre Hollow Knight en el mundo hispanohablante.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="text-center p-4">
-            <h3>Objetivo General</h3>
-            <p>Crear un espacio digital donde los seguidores puedan interactuar, compartir conocimientos y crecer juntos.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="text-center p-4">
-            <h3>Objetivos Específicos</h3>
-            <ul class="list-unstyled">
-              <li>Compartir contenido original y curado.</li>
-              <li>Fomentar la participación activa.</li>
-              <li>Organizar eventos virtuales.</li>
-              <li>Promover valores de respeto e inclusión.</li>
-            </ul>
-          </div>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Siguiente</span>
-      </button>
+
+      <!-- Imagen derecha -->
+      <div>
+        <img src="assets/img/mi.gif" alt="Imagen derecha" class="img-fluid" style="max-width: 200px" />
+      </div>
     </div>
   </section>
 
   <!-- Modal de Donaciones -->
   <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-dark text-white">
         <div class="modal-header">
           <h5 class="modal-title" id="donationModalLabel">Donaciones</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
           <form id="donationForm">
-            <div class="text-center mb-4">
-              <h2>Apóyame</h2>
-              <p>Tu ayuda mantiene este mundo de ideas vivo. ¡Gracias por considerar una donación!</p>
-            </div>
             <div class="mb-3">
               <label for="paymentMethod" class="form-label">Método de pago</label>
               <select id="paymentMethod" class="form-select" required>
@@ -118,27 +132,23 @@
                 <option value="nequi">Nequi</option>
               </select>
             </div>
-            <div id="paypalFields" class="d-none">
-              <div class="mb-3">
-                <label for="paypalEmail" class="form-label">Correo electrónico de PayPal</label>
-                <input type="email" id="paypalEmail" class="form-control" placeholder="tuemail@example.com">
-              </div>
+            <div id="paypalFields" class="mb-3 d-none">
+              <label for="paypalEmail" class="form-label">Correo electrónico de PayPal</label>
+              <input type="email" id="paypalEmail" class="form-control" placeholder="tucorreo@example.com" />
             </div>
-            <div id="nequiFields" class="d-none">
-              <div class="mb-3">
-                <label for="nequiPhone" class="form-label">Número de teléfono (Nequi)</label>
-                <input type="tel" id="nequiPhone" class="form-control" placeholder="3101234567" pattern="\d{10}">
-              </div>
+            <div id="nequiFields" class="mb-3 d-none">
+              <label for="nequiPhone" class="form-label">Número de teléfono (Nequi)</label>
+              <input type="tel" id="nequiPhone" class="form-control" placeholder="3101234567" pattern="\d{10}" />
             </div>
             <div class="mb-3">
-              <label for="amount" class="form-label">Monto a donar</label>
-              <input type="number" id="amount" class="form-control" placeholder="Ej: 20.00" min="1" step="0.01" required>
+              <label for="amount" class="form-label">Monto a donar (COP)</label>
+              <input type="number" id="amount" class="form-control" placeholder="Ej: 10000" min="1" required />
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Donar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" form="donationForm" class="btn btn-primary">Enviar Donación</button>
         </div>
       </div>
     </div>
@@ -151,18 +161,8 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('paymentMethod').addEventListener('change', function () {
-      const paypalFields = document.getElementById('paypalFields');
-      const nequiFields = document.getElementById('nequiFields');
-      const selectedMethod = this.value;
-
-      // Habilitar campos según método de pago seleccionado
-      paypalFields.classList.toggle('d-none', selectedMethod !== 'paypal');
-      nequiFields.classList.toggle('d-none', selectedMethod !== 'nequi');
-    });
-  </script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacto - Mi Blog</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/estilos.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/estilos.css" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #202020;
-      color: #f8f9fa;
+      background: url('assets/img/FONDO.AVIF') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
     }
-    .navbar, footer, .modal-header, .modal-footer {
-      background-color: #343a40;
+    .navbar, footer, .modal-content {
+      background-color: #1f1f1f;
     }
-    .btn-primary {
-      background-color: #6c757d;
-      border-color: #6c757d;
+    .form-control, .form-select {
+      background-color: #2c2c2c;
+      color: #fff;
+      border: 1px solid #444;
     }
-    .btn-primary:hover {
-      background-color: #5a6268;
-    }
-    a.nav-link {
-      color: #f8f9fa;
-    }
-    a.nav-link:hover {
-      color: #d4d4d4;
-    }
-    .form-control, .btn {
-      color: #f8f9fa;
-      background-color: #343a40;
-      border-color: #6c757d;
-    }
-    .form-control:focus {
-      border-color: #5a6268;
+    .form-control:focus, .form-select:focus {
+      background-color: #2c2c2c;
+      color: #fff;
+      border-color: #777;
       box-shadow: none;
     }
-    .modal-content {
-      background-color: #202020;
-      color: #f8f9fa;
+    .modal-header, .modal-footer {
+      border-color: #333;
+    }
+    .btn-close {
+      filter: invert(1);
+    }
+    label {
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
   <!-- Navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Mi Blog</a>
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/Hollow-Knight-Logo-PNG-Images-HD.png" alt="Logo" style="height: 40px;">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -66,7 +62,7 @@
   </nav>
 
   <!-- Encabezado -->
-  <header class="text-light p-5 rounded shadow-sm mb-4">
+  <header class="text-light p-5 rounded shadow-sm mb-4 bg-dark">
     <div class="container text-center">
       <h1>Contacto</h1>
       <p>Ponte en contacto conmigo para consultas, sugerencias o colaboraciones.</p>
@@ -74,11 +70,22 @@
   </header>
 
   <!-- Información de contacto -->
-  <section class="container mb-5">
-    <h2 class="mb-3">Información de contacto</h2>
-    <p><strong>Correo:</strong> contacto@miblog.com</p>
-    <p><strong>Teléfono:</strong> +57 300 000 0000</p>
-    <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
+  <section class="container mb-5 d-flex justify-content-between align-items-center flex-wrap">
+    <div>
+      <h2 class="mb-3">Información de contacto</h2>
+      <p><strong>Correo:</strong> contacto@miblog.com</p>
+      <p><strong>Teléfono:</strong> +57 300 000 0000</p>
+      <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
+    </div>
+    <div>
+      <img src="assets/img/luz.gif" class="img-fluid mx-3" style="max-width: 200px; border-radius: 10px;">
+    </div>
+    <div>
+      <img src="assets/img/91909fe563ff1329dfecd73ffeef7622.gif" class="img-fluid mx-3" style="max-width: 200px; border-radius: 10px;">
+    </div>
+    <div>
+      <img src="assets/img/hollow-knight.gif" class="img-fluid mx-3" style="max-width: 200px; border-radius: 10px;">
+    </div>
   </section>
 
   <!-- Mapa -->
@@ -86,7 +93,7 @@
     <h2 class="mb-3">Ubicación</h2>
     <div class="ratio ratio-16x9">
       <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8872070181466!2d-74.07209268466087!3d4.59807754399119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a3a01f379d%3A0x57bb4bc98a45e124!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1620213971451!5m2!1ses!2sco" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8872070181466!2d-74.07209268466087!3d4.59807754399119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a3a01f379d%3A0x57bb4bc98a45e124!2sBogotá,%20Colombia!5e0!3m2!1ses!2sco!4v1620213971451!5m2!1ses!2sco" 
         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
       </iframe>
     </div>
@@ -112,48 +119,45 @@
     </form>
   </section>
 
-  <!-- Modal de Donaciones -->
+  <!-- Modal Donaciones -->
   <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <form class="modal-content" id="donationForm">
         <div class="modal-header">
-          <h5 class="modal-title" id="donationModalLabel">Donaciones</h5>
+          <h5 class="modal-title" id="donationModalLabel">Donar al Blog</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
-          <form id="donationForm">
-            <div class="mb-3">
-              <label for="paymentMethod" class="form-label">Método de pago</label>
-              <select id="paymentMethod" class="form-select" required>
-                <option value="">Seleccionar...</option>
-                <option value="paypal">PayPal</option>
-                <option value="nequi">Nequi</option>
-              </select>
-            </div>
-            <div id="paypalFields" class="d-none">
-              <label for="paypalEmail" class="form-label">Correo electrónico de PayPal</label>
-              <input type="email" id="paypalEmail" class="form-control" placeholder="tuemail@example.com">
-            </div>
-            <div id="nequiFields" class="d-none">
-              <label for="nequiPhone" class="form-label">Número de teléfono (Nequi)</label>
-              <input type="tel" id="nequiPhone" class="form-control" placeholder="3101234567" pattern="\d{10}">
-            </div>
-            <div class="mb-3">
-              <label for="amount" class="form-label">Monto a donar</label>
-              <input type="number" id="amount" class="form-control" placeholder="Ej: 20.00" min="1" step="0.01" required>
-            </div>
-          </form>
+          <div class="mb-3">
+            <label for="donationAmount" class="form-label">Monto</label>
+            <input type="number" class="form-control" id="donationAmount" required>
+          </div>
+          <div class="mb-3">
+            <label for="donationMethod" class="form-label">Método de Pago</label>
+            <select class="form-select" id="donationMethod" required>
+              <option value="">Selecciona una opción</option>
+              <option value="paypal">PayPal</option>
+              <option value="nequi">Nequi</option>
+            </select>
+          </div>
+          <div class="mb-3 d-none" id="paypalField">
+            <label for="paypalEmail" class="form-label">Correo PayPal</label>
+            <input type="email" class="form-control" id="paypalEmail">
+          </div>
+          <div class="mb-3 d-none" id="nequiField">
+            <label for="nequiPhone" class="form-label">Teléfono Nequi</label>
+            <input type="text" class="form-control" id="nequiPhone">
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" form="donationForm" class="btn btn-primary">Enviar Donación</button>
+          <button type="submit" class="btn btn-success">Donar</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 
   <!-- Pie de página -->
-  <footer class="text-center py-4 mt-5">
+  <footer class="text-center py-4 mt-5 bg-dark text-white">
     <div class="container">
       <p>&copy; 2025 Mi Blog Hollow Knight. ¡Gracias por tu visita!</p>
     </div>
@@ -161,15 +165,49 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('paymentMethod').addEventListener('change', function () {
-      const paypalFields = document.getElementById('paypalFields');
-      const nequiFields = document.getElementById('nequiFields');
-      const selectedMethod = this.value;
 
-      paypalFields.classList.toggle('d-none', selectedMethod !== 'paypal');
-      nequiFields.classList.toggle('d-none', selectedMethod !== 'nequi');
+  <!-- Script para el modal de donaciones -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const methodSelect = document.getElementById('donationMethod');
+      const paypalField = document.getElementById('paypalField');
+      const nequiField = document.getElementById('nequiField');
+
+      methodSelect.addEventListener('change', () => {
+        paypalField.classList.add('d-none');
+        nequiField.classList.add('d-none');
+
+        if (methodSelect.value === 'paypal') {
+          paypalField.classList.remove('d-none');
+        } else if (methodSelect.value === 'nequi') {
+          nequiField.classList.remove('d-none');
+        }
+      });
+
+      document.getElementById('donationForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const amount = document.getElementById('donationAmount').value;
+        const method = methodSelect.value;
+        const email = document.getElementById('paypalEmail').value;
+        const phone = document.getElementById('nequiPhone').value;
+
+        if (method === 'paypal' && email) {
+          alert(`¡Gracias por donar $${amount} con PayPal! Correo: ${email}`);
+        } else if (method === 'nequi' && phone) {
+          alert(`¡Gracias por donar $${amount} con Nequi! Teléfono: ${phone}`);
+        } else {
+          alert('Por favor completa los datos de tu método de pago.');
+          return;
+        }
+
+        this.reset();
+        paypalField.classList.add('d-none');
+        nequiField.classList.add('d-none');
+        const modal = bootstrap.Modal.getInstance(document.getElementById('donationModal'));
+        modal.hide();
+      });
     });
   </script>
+
 </body>
 </html>
