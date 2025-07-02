@@ -5,62 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog - Mi Comunidad</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #121212;
-      color: white;
-    }
-    .navbar, .card, .form-control, .btn, .list-group-item {
-      color: white !important;
-    }
-    .form-control, .form-select {
-      background-color: #2c2c2c;
-      border: 1px solid #444;
-      color: white;
-    }
-    .form-control::placeholder {
-      color: #ccc;
-    }
-    .card {
-      background-color: #1f1f1f;
-      border: 1px solid #2d2d2d;
-    }
-    h1, h5, p, label, input, textarea {
-      color: white !important;
-    }
-    .btn-primary {
-      background-color: #6c757d;
-      border-color: #6c757d;
-    }
-    .btn-primary:hover {
-      background-color: #5a6268;
-    }
-    .btn-success {
-      background-color: #28a745;
-      border-color: #28a745;
-    }
-    .btn-success:hover {
-      background-color: #218838;
-    }
-    .list-group-item {
-      background-color: #2d2d2d;
-      color: #ccc;
-      border: none;
-    }
-    .modal-content {
-      background-color: #1f1f1f;
-      color: white;
-    }
-    .modal-header, .modal-footer {
-      border-color: #333;
-    }
-    .btn-close {
-      filter: invert(1);
-    }
-    label {
-      color: #ccc;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/estilos.css" />
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #121212;
+    color: #28a745;
+    background-image: url('assets/img/fond.jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1;
+  }
+  .navbar, .card, .btn, .list-group-item {
+    color: white !important;
+  }
+  .form-control, .form-select {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    color: white !important;
+  }
+  .form-control:focus, .form-select:focus {
+    background-color: #2c2c2c !important;
+    color: white !important;
+    box-shadow: none;
+  }
+  .form-control::placeholder {
+    color: #ccc;
+  }
+  .card {
+    background-color: #1f1f1f;
+    border: 1px solid #2d2d2d;
+  }
+  h1 {
+    color: #28a745 !important;
+  }
+  h5, p, label {
+    color: white !important;
+  }
+  .btn-primary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  .btn-primary:hover {
+    background-color: #5a6268;
+  }
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  .btn-like-liked {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: white !important;
+  }
+  .list-group-item {
+    background-color: #2d2d2d;
+    color: #ccc;
+    border: none;
+  }
+  .modal-content {
+    background-color: #1f1f1f;
+    color: white;
+  }
+  .modal-header, .modal-footer {
+    border-color: #333;
+  }
+  .btn-close {
+    filter: invert(1);
+  }
+  label {
+    color: #ccc;
+  }
+  #postContainer .card {
+    width: 100%;
+    max-width: 600px;
+  }
+  .blog-wrapper {
+    background-color: rgba(26, 26, 26, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #2d2d2d;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+  }
+  footer {
+    margin-top: auto;
+  }
+</style>
+
+   
 </head>
 <body>
 
@@ -85,12 +133,50 @@
 </nav>
 
 <!-- Blog interactivo -->
-<div class="container">
+<div class="container text-center blog-wrapper">
   <h1 class="mb-4">Publicaciones del Blog</h1>
-  <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#postModal">Crear Publicación</button>
-  <div id="postContainer" class="mb-5"></div>
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#postModal">Crear Publicación</button>
+  </div>
+  <div id="postContainer" class="mb-5 d-flex flex-column align-items-center"></div>
 </div>
 
+  <!-- Modal Donaciones -->
+  <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content" id="donationForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="donationModalLabel">Donar al Blog</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="donationAmount" class="form-label">Monto</label>
+            <input type="number" class="form-control" id="donationAmount" required>
+          </div>
+          <div class="mb-3">
+            <label for="donationMethod" class="form-label">Método de Pago</label>
+            <select class="form-select" id="donationMethod" required>
+              <option value="">Selecciona una opción</option>
+              <option value="paypal">PayPal</option>
+              <option value="nequi">Nequi</option>
+            </select>
+          </div>
+          <div class="mb-3 d-none" id="paypalField">
+            <label for="paypalEmail" class="form-label">Correo PayPal</label>
+            <input type="email" class="form-control" id="paypalEmail">
+          </div>
+          <div class="mb-3 d-none" id="nequiField">
+            <label for="nequiPhone" class="form-label">Teléfono Nequi</label>
+            <input type="text" class="form-control" id="nequiPhone">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Donar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 <!-- Modal nueva publicación -->
 <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -110,53 +196,28 @@
             <textarea class="form-control" id="postContenido" placeholder="Escribe tu post aquí..." rows="4" required></textarea>
           </div>
           <div class="mb-3">
-            <label for="postArchivo" class="form-label">Subir Imagen/Video</label>
+            <label class="form-label">Tipo de contenido</label>
+            <select class="form-select" id="tipoContenido" required>
+              <option value="">Seleccionar...</option>
+              <option value="archivo">Subir Imagen/gif</option>
+              <option value="youtube">Insertar Video de YouTube</option>
+            </select>
+          </div>
+          <div class="mb-3 d-none" id="subidaArchivo">
+            <label for="postArchivo" class="form-label">Archivo</label>
             <input type="file" class="form-control" id="postArchivo" accept="image/*,video/*">
+          </div>
+          <div class="mb-3 d-none" id="youtubeUrl">
+            <label for="postYoutube" class="form-label">URL del video de YouTube</label>
+            <input type="url" class="form-control" id="postYoutube" placeholder="https://www.youtube.com/watch?v=...">
           </div>
         </form>
       </div>
       <div class="modal-footer bg-dark">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" form="postForm" class="btn btn-primary">Publicar</button>
+        <button type="submit" form="postForm" class="btn btn-success" onclick="insertarPost(event)">Publicar</button>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- Modal donaciones -->
-<div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form class="modal-content" id="donationForm">
-      <div class="modal-header">
-        <h5 class="modal-title" id="donationModalLabel">Donar al Blog</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label for="donationAmount" class="form-label">Monto</label>
-          <input type="number" class="form-control" id="donationAmount" required>
-        </div>
-        <div class="mb-3">
-          <label for="donationMethod" class="form-label">Método de Pago</label>
-          <select class="form-select" id="donationMethod" required>
-            <option value="">Selecciona una opción</option>
-            <option value="paypal">PayPal</option>
-            <option value="nequi">Nequi</option>
-          </select>
-        </div>
-        <div class="mb-3 d-none" id="paypalField">
-          <label for="paypalEmail" class="form-label">Correo PayPal</label>
-          <input type="email" class="form-control" id="paypalEmail">
-        </div>
-        <div class="mb-3 d-none" id="nequiField">
-          <label for="nequiPhone" class="form-label">Teléfono Nequi</label>
-          <input type="text" class="form-control" id="nequiPhone">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Donar</button>
-      </div>
-    </form>
   </div>
 </div>
 
@@ -169,6 +230,89 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tipoContenido = document.getElementById('tipoContenido');
+    const subidaArchivo = document.getElementById('subidaArchivo');
+    const youtubeUrl = document.getElementById('youtubeUrl');
+
+    tipoContenido.addEventListener('change', () => {
+      subidaArchivo.classList.add('d-none');
+      youtubeUrl.classList.add('d-none');
+
+      if (tipoContenido.value === 'archivo') {
+        subidaArchivo.classList.remove('d-none');
+      } else if (tipoContenido.value === 'youtube') {
+        youtubeUrl.classList.remove('d-none');
+      }
+    });
+  });
+
+  function insertarPost(e) {
+    e.preventDefault();
+    const titulo = document.getElementById('postTitulo').value;
+    const contenido = document.getElementById('postContenido').value;
+    const tipo = document.getElementById('tipoContenido').value;
+    const archivo = document.getElementById('postArchivo').files[0];
+    const youtubeUrl = document.getElementById('postYoutube').value;
+
+    let mediaHtml = '';
+    if (tipo === 'archivo' && archivo) {
+      const url = URL.createObjectURL(archivo);
+      if (archivo.type.startsWith('image')) {
+        mediaHtml = `<img src="${url}" class="img-fluid mt-3"/>`;
+      } else if (archivo.type.startsWith('video')) {
+        mediaHtml = `<video controls class="img-fluid mt-3"><source src="${url}" type="${archivo.type}"></video>`;
+      }
+    } else if (tipo === 'youtube' && youtubeUrl.includes("youtube.com/watch?v=")) {
+      const videoId = new URL(youtubeUrl).searchParams.get("v");
+      mediaHtml = `<div class="ratio ratio-16x9 mt-3"><iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe></div>`;
+    }
+
+    const postHTML = `
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">${titulo}</h5>
+          <p class="card-text">${contenido}</p>
+          ${mediaHtml}
+          <div class="mt-3">
+            <button class="btn btn-danger btn-sm me-2" onclick="this.closest('.card').remove()">Eliminar</button>
+            <button class="btn btn-outline-light btn-sm me-2" onclick="incrementarLike(this)">👍 Me gusta (<span>0</span>)</button>
+          </div>
+          <div class="mt-3">
+            <textarea class="form-control mb-2" placeholder="Escribe una respuesta..."></textarea>
+            <button class="btn btn-sm btn-secondary" onclick="agregarRespuesta(this)">Responder</button>
+            <ul class="list-group list-group-flush mt-2"></ul>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('postContainer').insertAdjacentHTML('afterbegin', postHTML);
+    document.getElementById('postForm').reset();
+    document.getElementById('subidaArchivo').classList.add('d-none');
+    document.getElementById('youtubeUrl').classList.add('d-none');
+    bootstrap.Modal.getInstance(document.getElementById('postModal')).hide();
+  }
+
+  function incrementarLike(btn) {
+    const span = btn.querySelector('span');
+    span.textContent = parseInt(span.textContent) + 1;
+  }
+
+  function agregarRespuesta(btn) {
+    const textarea = btn.previousElementSibling;
+    const respuesta = textarea.value.trim();
+    if (respuesta) {
+      const ul = btn.nextElementSibling;
+      const li = document.createElement('li');
+      li.className = 'list-group-item';
+      li.textContent = respuesta;
+      ul.appendChild(li);
+      textarea.value = '';
+    }
+  }
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const methodSelect = document.getElementById('donationMethod');
@@ -210,6 +354,6 @@
     });
   });
 </script>
-
+<script src="assets/js/script.js"></script>
 </body>
 </html>
