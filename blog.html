@@ -13,9 +13,10 @@
     .navbar, .card, .form-control, .btn, .list-group-item {
       color: white !important;
     }
-    .form-control {
+    .form-control, .form-select {
       background-color: #2c2c2c;
       border: 1px solid #444;
+      color: white;
     }
     .form-control::placeholder {
       color: #ccc;
@@ -34,123 +35,181 @@
     .btn-primary:hover {
       background-color: #5a6268;
     }
+    .btn-success {
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+    .btn-success:hover {
+      background-color: #218838;
+    }
     .list-group-item {
       background-color: #2d2d2d;
       color: #ccc;
       border: none;
     }
+    .modal-content {
+      background-color: #1f1f1f;
+      color: white;
+    }
+    .modal-header, .modal-footer {
+      border-color: #333;
+    }
+    .btn-close {
+      filter: invert(1);
+    }
+    label {
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/img/Hollow-Knight-Logo-PNG-Images-HD.png" alt="Logo" style="height: 40px;">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="contactos.html">Contacto</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#donationModal">
-              <img src="assets/img/heart-icon.png" alt="Donar" style="height: 20px; margin-right: 5px;">Donaciones
-            </a>
-          </li>
-          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
-        </ul>
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/img/Hollow-Knight-Logo-PNG-Images-HD.png" alt="Hollow Knight Logo" style="height: 40px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contactos.html">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#donationModal">Donaciones</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Blog interactivo -->
+<div class="container">
+  <h1 class="mb-4">Publicaciones del Blog</h1>
+  <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#postModal">Crear Publicación</button>
+  <div id="postContainer" class="mb-5"></div>
+</div>
+
+<!-- Modal nueva publicación -->
+<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title" id="postModalLabel">Nueva Publicación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body bg-dark">
+        <form id="postForm">
+          <div class="mb-3">
+            <label for="postTitulo" class="form-label">Título</label>
+            <input type="text" class="form-control" id="postTitulo" placeholder="Título del post" required>
+          </div>
+          <div class="mb-3">
+            <label for="postContenido" class="form-label">Contenido</label>
+            <textarea class="form-control" id="postContenido" placeholder="Escribe tu post aquí..." rows="4" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="postArchivo" class="form-label">Subir Imagen/Video</label>
+            <input type="file" class="form-control" id="postArchivo" accept="image/*,video/*">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer bg-dark">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" form="postForm" class="btn btn-primary">Publicar</button>
       </div>
     </div>
-  </nav>
+  </div>
+</div>
 
-  <!-- Blog interactivo -->
+<!-- Modal donaciones -->
+<div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" id="donationForm">
+      <div class="modal-header">
+        <h5 class="modal-title" id="donationModalLabel">Donar al Blog</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="donationAmount" class="form-label">Monto</label>
+          <input type="number" class="form-control" id="donationAmount" required>
+        </div>
+        <div class="mb-3">
+          <label for="donationMethod" class="form-label">Método de Pago</label>
+          <select class="form-select" id="donationMethod" required>
+            <option value="">Selecciona una opción</option>
+            <option value="paypal">PayPal</option>
+            <option value="nequi">Nequi</option>
+          </select>
+        </div>
+        <div class="mb-3 d-none" id="paypalField">
+          <label for="paypalEmail" class="form-label">Correo PayPal</label>
+          <input type="email" class="form-control" id="paypalEmail">
+        </div>
+        <div class="mb-3 d-none" id="nequiField">
+          <label for="nequiPhone" class="form-label">Teléfono Nequi</label>
+          <input type="text" class="form-control" id="nequiPhone">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Donar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Pie de página -->
+<footer class="bg-dark text-center text-light py-4 mt-5 border-top border-secondary">
   <div class="container">
-    <h1 class="mb-4">Publicaciones del Blog</h1>
-    <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#postModal">Crear Publicación</button>
-    <div id="postContainer" class="mb-5"></div>
+    <p>&copy; 2025 Mi Blog Hollow Knight. Comparte tu pasión.</p>
   </div>
+</footer>
 
-  <!-- Modal Nueva Publicación -->
-  <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-dark">
-          <h5 class="modal-title" id="postModalLabel">Nueva Publicación</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body bg-dark">
-          <form id="postForm">
-            <div class="mb-3">
-              <label for="postTitulo" class="form-label">Título</label>
-              <input type="text" class="form-control" id="postTitulo" placeholder="Título del post" required>
-            </div>
-            <div class="mb-3">
-              <label for="postContenido" class="form-label">Contenido</label>
-              <textarea class="form-control" id="postContenido" placeholder="Escribe tu post aquí..." rows="4" required></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="postArchivo" class="form-label">Subir Imagen/Video</label>
-              <input type="file" class="form-control" id="postArchivo" accept="image/*,video/*">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer bg-dark">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" form="postForm" class="btn btn-primary">Publicar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const methodSelect = document.getElementById('donationMethod');
+    const paypalField = document.getElementById('paypalField');
+    const nequiField = document.getElementById('nequiField');
 
-  <!-- Modal Donaciones -->
-  <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-dark">
-          <h5 class="modal-title" id="donationModalLabel">Donaciones</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body bg-dark">
-          <form id="donationForm">
-            <div class="mb-3">
-              <label for="paymentMethod" class="form-label">Método de pago</label>
-              <select id="paymentMethod" class="form-select" required>
-                <option value="">Seleccionar...</option>
-                <option value="paypal">PayPal</option>
-                <option value="nequi">Nequi</option>
-              </select>
-            </div>
-            <div id="paypalFields" class="mb-3 d-none">
-              <label for="paypalEmail" class="form-label">Correo electrónico de PayPal</label>
-              <input type="email" id="paypalEmail" class="form-control" placeholder="tuemail@example.com">
-            </div>
-            <div id="nequiFields" class="mb-3 d-none">
-              <label for="nequiPhone" class="form-label">Número de teléfono (Nequi)</label>
-              <input type="tel" id="nequiPhone" class="form-control" placeholder="3101234567" pattern="\d{10}">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer bg-dark">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" form="donationForm" class="btn btn-primary">Enviar Donación</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    methodSelect.addEventListener('change', () => {
+      paypalField.classList.add('d-none');
+      nequiField.classList.add('d-none');
 
-  <!-- Footer -->
-  <footer class="bg-dark text-center text-light py-4 mt-5 border-top border-secondary">
-    <div class="container">
-      <p>&copy; 2025 Mi Blog Hollow Knight. Comparte tu pasión.</p>
-    </div>
-  </footer>
+      if (methodSelect.value === 'paypal') {
+        paypalField.classList.remove('d-none');
+      } else if (methodSelect.value === 'nequi') {
+        nequiField.classList.remove('d-none');
+      }
+    });
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/script.js"></script>
+    document.getElementById('donationForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const amount = document.getElementById('donationAmount').value;
+      const method = methodSelect.value;
+      const email = document.getElementById('paypalEmail').value;
+      const phone = document.getElementById('nequiPhone').value;
+
+      if (method === 'paypal' && email) {
+        alert(`¡Gracias por donar $${amount} con PayPal! Correo: ${email}`);
+      } else if (method === 'nequi' && phone) {
+        alert(`¡Gracias por donar $${amount} con Nequi! Teléfono: ${phone}`);
+      } else {
+        alert('Por favor completa los datos de tu método de pago.');
+        return;
+      }
+
+      this.reset();
+      paypalField.classList.add('d-none');
+      nequiField.classList.add('d-none');
+      const modal = bootstrap.Modal.getInstance(document.getElementById('donationModal'));
+      modal.hide();
+    });
+  });
+</script>
+
 </body>
 </html>
